@@ -18,7 +18,7 @@ class Pitch:
     B = [123, 247, 494, 988]
 
 
-Note = namedtuple('Note', ('frequency', 'duty', 'duration'))
+Note = namedtuple('Note', ('frequency', 'duty', 'duration', 'staccato'))
 
 
 class Buzzer:
@@ -42,23 +42,28 @@ class Buzzer:
     def frequency(self, value: int):
         self._pwm.freq(value)
 
-    def play_note(self, note: Note):
+    def play_note(self, note: Note, speed=1):
         try:
+            duration = note.duration / speed
             if note.frequency is not None:
                 self.frequency = note.frequency
             self.duty = note.duty
-            sleep(note.duration)
+
+            if note.staccato:
+                sleep(0.1)
+            else:
+                sleep(duration)
         except:
             pass
         finally:
             self.duty = 0
+            if note.staccato:
+                sleep(duration - 0.1)
 
     def play_tune(self, notes, speed=1):
         try:
             for note in notes:
-                duration = note.duration / speed
-                note = Note(note.frequency, note.duty, duration)
-                self.play_note(note)
+                self.play_note(note, speed=speed)
         except:
             pass
         finally:
