@@ -19,6 +19,7 @@ class Pitch:
 
 
 Note = namedtuple('Note', ('frequency', 'duty', 'duration', 'staccato'))
+NoteEvent = namedtuple('NoteEvent', ('frequency', 'duty', 'time', 'buzzer_id'))
 
 
 class Buzzer:
@@ -45,8 +46,7 @@ class Buzzer:
     def play_note(self, note: Note, speed=1):
         try:
             duration = note.duration / speed
-            if note.frequency is not None:
-                self.frequency = note.frequency
+            self.frequency = note.frequency or 0
             self.duty = note.duty
 
             if note.staccato:
@@ -68,3 +68,45 @@ class Buzzer:
             pass
         finally:
             self.duty = 0
+
+
+class BuzzerBand:
+    def __init__(self, *buzzers):
+        self._buzzers = buzzers
+
+    def play_event(self, event: NoteEvent):
+        print(event)
+        buzzer = self._buzzers[event.buzzer_id]
+        buzzer.frequency = event.frequency or 0
+        buzzer.duty = event.duty
+
+    def play_tunes(self, *tunes, speed=1):
+        ensemble = []
+        staccato_duration = 0.1 / speed
+        for i, tune in enumerate(tunes):
+            queue, t = [], 0
+            for n in tune:
+                queue.append(NoteEvent(n.frequency, n.duty, t, i))
+
+                duration = n.duration / speed
+                t += staccato_duration if n.staccato else duration
+                queue.append(NoteEvent(None, 0, t, i))
+
+                if n.staccato:
+                    t += duration - staccato_duration
+
+            ensemble += queue
+
+        ensemble = sorted(ensemble, key=lambda n: n.time)
+
+        try:
+            for i, event in enumerate(ensemble):
+                print(i, event)
+                self.play_event(event)
+                if i + 1 < len(ensemble):
+                    sleep(ensemble[i+1].time - event.time)
+        except:
+            pass
+        finally:
+            for b in self._buzzers:
+                b.duty = 0
