@@ -43,14 +43,23 @@ class Buzzer:
         self._pwm.freq(value)
 
     def play_note(self, note: Note):
-        if note.frequency is not None:
-            self.frequency = note.frequency
-        self.duty = note.duty
-        sleep(note.duration)
-        self.duty = 0
+        try:
+            if note.frequency is not None:
+                self.frequency = note.frequency
+            self.duty = note.duty
+            sleep(note.duration)
+        except:
+            pass
+        finally:
+            self.duty = 0
 
     def play_tune(self, notes, speed=1):
-        for note in notes:
-            duration = note.duration / speed
-            note = Note(note.frequency, note.duty, duration)
-            self.play_note(note)
+        try:
+            for note in notes:
+                duration = note.duration / speed
+                note = Note(note.frequency, note.duty, duration)
+                self.play_note(note)
+        except:
+            pass
+        finally:
+            self.duty = 0
