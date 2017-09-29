@@ -1,6 +1,6 @@
 import machine
 from time import sleep
-from collections import namedtuple
+from ucollections import namedtuple
 
 
 class Pitch:
@@ -40,7 +40,7 @@ class Buzzer:
 
     @frequency.setter
     def frequency(self, value: int):
-        self._pwm.frequency(value)
+        self._pwm.freq(value)
 
     def play_note(self, note: Note):
         if note.frequency is not None:
@@ -52,5 +52,5 @@ class Buzzer:
     def play_tune(self, notes, speed=1):
         for note in notes:
             duration = note.duration / speed
-            note = note._replace(duration=duration)
+            note = Note(note.frequency, note.duty, duration)
             self.play_note(note)
