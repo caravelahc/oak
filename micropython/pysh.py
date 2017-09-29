@@ -21,6 +21,9 @@ def cd(path):
 
 
 def rm(*args):
+    if len(args) == 0:
+        args = args[0].split()
+
     for path in args:
         try:
             os.remove(path)
@@ -29,3 +32,11 @@ def rm(*args):
                 os.rmdir(path)
             else:
                 raise OSError(path + 'is a directory')
+
+
+def mkdir(path):
+    os.mkdir(path)
+
+
+def mv(old_path, new_path):
+    os.rename(old_path, new_path)
