@@ -49,6 +49,8 @@ class Buzzer:
         sleep(note.duration)
         self.duty = 0
 
-    def play_tune(self, notes):
+    def play_tune(self, notes, speed=1):
         for note in notes:
-            self.play_note(notes)
+            duration = note.duration / speed
+            note = note._replace(duration=duration)
+            self.play_note(note)
