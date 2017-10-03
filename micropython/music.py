@@ -1,5 +1,5 @@
+import uasyncio as asyncio
 import machine
-from time import sleep
 from ucollections import namedtuple
 
 
@@ -19,7 +19,6 @@ class Pitch:
 
 
 Note = namedtuple('Note', ('frequency', 'duty', 'duration', 'staccato'))
-NoteEvent = namedtuple('NoteEvent', ('frequency', 'duty', 'time', 'buzzer_id'))
 
 
 class Buzzer:
@@ -43,70 +42,42 @@ class Buzzer:
     def frequency(self, value: int):
         self._pwm.freq(value)
 
-    def play_note(self, note: Note, speed=1):
+    async def _play_note_coro(self, note: Note, speed=1):
         try:
             duration = note.duration / speed
-            self.frequency = note.frequency or 0
-            self.duty = note.duty
+            if note.frequency is not None:
+                self.frequency = note.frequency
+            # self.duty = note.duty
+            self.duty = 200
 
             if note.staccato:
-                sleep(0.1)
+                await asyncio.sleep(0.1)
             else:
-                sleep(duration)
-        except:
-            pass
+                await asyncio.sleep(duration)
         finally:
             self.duty = 0
             if note.staccato:
-                sleep(duration - 0.1)
+                await asyncio.sleep(duration - 0.1)
 
-    def play_tune(self, notes, speed=1):
+    async def _play_tune_coro(self, notes, speed=1):
         try:
             for note in notes:
-                self.play_note(note, speed=speed)
-        except:
-            pass
+                await self._play_note_coro(note, speed=speed)
         finally:
             self.duty = 0
+
+    def play_tune(self, notes, speed=1):
+        loop = asyncio.get_event_loop()
+        loop.run_until_complete(self._play_tune_coro(notes, speed=speed))
 
 
 class BuzzerBand:
     def __init__(self, *buzzers):
         self._buzzers = buzzers
 
-    def play_event(self, event: NoteEvent):
-        print(event)
-        buzzer = self._buzzers[event.buzzer_id]
-        buzzer.frequency = event.frequency or 0
-        buzzer.duty = event.duty
-
     def play_tunes(self, *tunes, speed=1):
-        ensemble = []
-        staccato_duration = 0.1 / speed
-        for i, tune in enumerate(tunes):
-            queue, t = [], 0
-            for n in tune:
-                queue.append(NoteEvent(n.frequency, n.duty, t, i))
+        loop = asyncio.get_event_loop()
+        for buzzer, tune in zip(self._buzzers, tunes):
+            loop.call_soon(buzzer._play_tune_coro(tune, speed=speed))
 
-                duration = n.duration / speed
-                t += staccato_duration if n.staccato else duration
-                queue.append(NoteEvent(None, 0, t, i))
-
-                if n.staccato:
-                    t += duration - staccato_duration
-
-            ensemble += queue
-
-        ensemble = sorted(ensemble, key=lambda n: n.time)
-
-        try:
-            for i, event in enumerate(ensemble):
-                print(i, event)
-                self.play_event(event)
-                if i + 1 < len(ensemble):
-                    sleep(ensemble[i+1].time - event.time)
-        except:
-            pass
-        finally:
-            for b in self._buzzers:
-                b.duty = 0
+        loop.run_forever()

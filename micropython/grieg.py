@@ -15,73 +15,92 @@ def main():
 IN_THE_HALL_OF_THE_MOUNTAIN_KING_1 = (
     Note(Pitch.E[3], 10, 4, 0),
 
-    Note(Pitch.A[1], 10, 0.5, 1), Note(Pitch.B[1], 10, 0.5, 1),
-    Note(Pitch.C[2], 10, 0.5, 1), Note(Pitch.D[2], 10, 0.5, 1),
-    Note(Pitch.E[2], 20, 0.5, 1), Note(Pitch.C[2], 10, 0.5, 1),
-    Note(Pitch.E[2], 10, 1, 1),
+    Note(Pitch.A[2], 10, 0.5, 1), Note(Pitch.B[2], 10, 0.5, 1),
+    Note(Pitch.C[3], 10, 0.5, 1), Note(Pitch.D[3], 10, 0.5, 1),
+    Note(Pitch.E[3], 20, 0.5, 1), Note(Pitch.C[3], 10, 0.5, 1),
+    Note(Pitch.E[3], 10, 1, 1),
 
-    Note(Pitch.Eb[2], 20, 0.5, 1), Note(Pitch.B[1], 10, 0.5, 1),
-    Note(Pitch.Eb[2], 10, 1, 1),
-    Note(Pitch.D[2], 20, 0.5, 1), Note(Pitch.Bb[2], 10, 0.5, 1),
-    Note(Pitch.D[2], 10, 1, 1),
+    Note(Pitch.Eb[3], 20, 0.5, 1), Note(Pitch.B[2], 10, 0.5, 1),
+    Note(Pitch.Eb[3], 10, 1, 1),
+    Note(Pitch.D[3], 20, 0.5, 1), Note(Pitch.Bb[3], 10, 0.5, 1),
+    Note(Pitch.D[3], 10, 1, 1),
 
-    Note(Pitch.A[1], 10, 0.5, 1), Note(Pitch.B[1], 10, 0.5, 1),
-    Note(Pitch.C[2], 10, 0.5, 1), Note(Pitch.D[2], 10, 0.5, 1),
-    Note(Pitch.E[2], 20, 0.5, 1), Note(Pitch.C[2], 10, 0.5, 1),
-    Note(Pitch.E[2], 10, 0.5, 1), Note(Pitch.A[2], 10, 0.5, 1),
+    Note(Pitch.A[2], 10, 0.5, 1), Note(Pitch.B[2], 10, 0.5, 1),
+    Note(Pitch.C[3], 10, 0.5, 1), Note(Pitch.D[3], 10, 0.5, 1),
+    Note(Pitch.E[3], 20, 0.5, 1), Note(Pitch.C[3], 10, 0.5, 1),
+    Note(Pitch.E[3], 10, 0.5, 1), Note(Pitch.A[3], 10, 0.5, 1),
 
-    Note(Pitch.G[2], 10, 0.5, 1), Note(Pitch.E[2], 10, 0.5, 1),
-    Note(Pitch.C[2], 20, 0.5, 1), Note(Pitch.E[2], 10, 0.5, 1),
-    Note(Pitch.G[2], 10, 2, 0),
-    # ...
+    Note(Pitch.G[3], 20, 0.5, 1), Note(Pitch.E[3], 10, 0.5, 1),
+    Note(Pitch.C[3], 10, 0.5, 1), Note(Pitch.E[3], 10, 0.5, 1),
+    Note(Pitch.G[3], 20, 2, 0),
+
+    Note(Pitch.A[2], 10, 0.5, 1), Note(Pitch.B[2], 10, 0.5, 1),
+    Note(Pitch.C[3], 10, 0.5, 1), Note(Pitch.D[3], 10, 0.5, 1),
+    Note(Pitch.E[3], 20, 0.5, 1), Note(Pitch.C[3], 10, 0.5, 1),
+    Note(Pitch.E[3], 10, 1, 1),
+
+    Note(Pitch.Eb[3], 20, 0.5, 1), Note(Pitch.B[2], 10, 0.5, 1),
+    Note(Pitch.Eb[3], 10, 1, 1),
+    Note(Pitch.D[3], 20, 0.5, 1), Note(Pitch.Bb[3], 10, 0.5, 1),
+    Note(Pitch.D[3], 10, 1, 1),
+
+    Note(Pitch.A[2], 10, 0.5, 1), Note(Pitch.B[2], 10, 0.5, 1),
+    Note(Pitch.C[3], 10, 0.5, 1), Note(Pitch.D[3], 10, 0.5, 1),
+    Note(Pitch.E[3], 20, 0.5, 1), Note(Pitch.C[3], 10, 0.5, 1),
+    Note(Pitch.E[3], 10, 0.5, 1), Note(Pitch.A[3], 10, 0.5, 1),
+
+    Note(Pitch.G[3], 20, 0.5, 1), Note(Pitch.E[3], 10, 0.5, 1),
+    Note(Pitch.C[3], 20, 0.5, 1), Note(Pitch.E[3], 10, 0.5, 1),
+    Note(Pitch.G[3], 20, 2, 0),
+
 )
 
 IN_THE_HALL_OF_THE_MOUNTAIN_KING_2 = (
     Note(Pitch.E[2], 5, 4, 0),
 
-    Note(Pitch.A[0], 5, 1, 1), Note(Pitch.E[1], 5, 1, 1),
-    Note(Pitch.A[0], 5, 1, 1), Note(Pitch.E[1], 5, 1, 1),
+    Note(Pitch.A[0], 10, 1, 1), Note(Pitch.E[1], 10, 1, 1),
+    Note(Pitch.A[0], 10, 1, 1), Note(Pitch.E[1], 10, 1, 1),
 
-    Note(Pitch.A[0], 5, 1, 1), Note(Pitch.E[1], 5, 1, 1),
-    Note(Pitch.A[0], 5, 1, 1), Note(Pitch.E[1], 5, 1, 1),
+    Note(Pitch.A[0], 10, 1, 1), Note(Pitch.E[1], 10, 1, 1),
+    Note(Pitch.A[0], 10, 1, 1), Note(Pitch.E[1], 10, 1, 1),
 
-    Note(Pitch.A[0], 5, 1, 1), Note(Pitch.E[1], 5, 1, 1),
-    Note(Pitch.A[0], 5, 1, 1), Note(Pitch.E[1], 5, 1, 1),
+    Note(Pitch.A[0], 10, 1, 1), Note(Pitch.E[1], 10, 1, 1),
+    Note(Pitch.A[0], 10, 1, 1), Note(Pitch.E[1], 10, 1, 1),
 
-    Note(Pitch.C[1], 5, 1, 1), Note(Pitch.G[1], 5, 1, 1),
-    Note(Pitch.C[1], 5, 1, 1), Note(Pitch.G[1], 5, 1, 1),
+    Note(Pitch.C[1], 10, 1, 1), Note(Pitch.G[1], 10, 1, 1),
+    Note(Pitch.C[1], 10, 1, 1), Note(Pitch.G[1], 10, 1, 1),
 
-    # Note(Pitch.A[0], 5, 1, 1), Note(Pitch.E[1], 5, 1, 1),
-    # Note(Pitch.A[0], 5, 1, 1), Note(Pitch.E[1], 5, 1, 1),
+    Note(Pitch.A[0], 10, 1, 1), Note(Pitch.E[1], 10, 1, 1),
+    Note(Pitch.A[0], 10, 1, 1), Note(Pitch.E[1], 10, 1, 1),
 
-    # Note(Pitch.A[0], 5, 1, 1), Note(Pitch.E[1], 5, 1, 1),
-    # Note(Pitch.A[0], 5, 1, 1), Note(Pitch.E[1], 5, 1, 1),
+    Note(Pitch.A[0], 10, 1, 1), Note(Pitch.E[1], 10, 1, 1),
+    Note(Pitch.A[0], 10, 1, 1), Note(Pitch.E[1], 10, 1, 1),
 
-    # Note(Pitch.A[0], 5, 1, 1), Note(Pitch.E[1], 5, 1, 1),
-    # Note(Pitch.A[0], 5, 1, 1), Note(Pitch.E[1], 5, 1, 1),
+    Note(Pitch.A[0], 10, 1, 1), Note(Pitch.E[1], 10, 1, 1),
+    Note(Pitch.A[0], 10, 1, 1), Note(Pitch.E[1], 10, 1, 1),
 
-    # Note(Pitch.C[1], 5, 1, 1), Note(Pitch.G[1], 5, 1, 1),
-    # Note(Pitch.C[1], 5, 1, 1), Note(Pitch.G[1], 5, 1, 1),
+    Note(Pitch.C[1], 10, 1, 1), Note(Pitch.G[1], 10, 1, 1),
+    Note(Pitch.C[1], 10, 1, 1), Note(Pitch.G[1], 10, 1, 1),
 
-    # Note(Pitch.E[1], 5, 1, 1), Note(Pitch.B[1], 5, 1, 1),
-    # Note(Pitch.E[1], 5, 1, 1), Note(Pitch.B[1], 5, 1, 1),
+    Note(Pitch.E[1], 10, 1, 1), Note(Pitch.B[1], 10, 1, 1),
+    Note(Pitch.E[1], 10, 1, 1), Note(Pitch.B[1], 10, 1, 1),
 
-    # Note(Pitch.C[1], 5, 1, 1), Note(Pitch.Ab[1], 5, 1, 1),
-    # Note(Pitch.E[1], 5, 1, 1), Note(Pitch.B[1], 5, 1, 1),
+    Note(Pitch.C[1], 10, 1, 1), Note(Pitch.Ab[1], 10, 1, 1),
+    Note(Pitch.E[1], 10, 1, 1), Note(Pitch.B[1], 10, 1, 1),
 
-    # Note(Pitch.E[1], 5, 1, 1), Note(Pitch.B[1], 5, 1, 1),
-    # Note(Pitch.E[1], 5, 1, 1), Note(Pitch.B[1], 5, 1, 1),
+    Note(Pitch.E[1], 10, 1, 1), Note(Pitch.B[1], 10, 1, 1),
+    Note(Pitch.E[1], 10, 1, 1), Note(Pitch.B[1], 10, 1, 1),
 
-    # Note(Pitch.C[1], 5, 1, 1), Note(Pitch.Ab[1], 5, 1, 1),
-    # Note(Pitch.E[1], 5, 1, 1), Note(Pitch.B[1], 5, 1, 1),
+    Note(Pitch.C[1], 10, 1, 1), Note(Pitch.Ab[1], 10, 1, 1),
+    Note(Pitch.E[1], 10, 1, 1), Note(Pitch.B[1], 10, 1, 1),
 
-    # Note(Pitch.E[1], 5, 1, 1), Note(Pitch.B[1], 5, 1, 1),
-    # Note(Pitch.E[1], 5, 1, 1), Note(Pitch.B[1], 5, 1, 1),
+    Note(Pitch.E[1], 10, 1, 1), Note(Pitch.B[1], 10, 1, 1),
+    Note(Pitch.E[1], 10, 1, 1), Note(Pitch.B[1], 10, 1, 1),
 
-    # Note(Pitch.C[1], 5, 1, 1), Note(Pitch.Ab[1], 5, 1, 1),
-    # Note(Pitch.E[1], 5, 1, 1), Note(Pitch.B[1], 5, 1, 1),
+    Note(Pitch.C[1], 10, 1, 1), Note(Pitch.Ab[1], 10, 1, 1),
+    Note(Pitch.E[1], 10, 1, 1), Note(Pitch.B[1], 10, 1, 1),
 
-    # Note(Pitch.E[1], 5, 1, 1), Note(Pitch.B[1], 5, 1, 1),
-    # Note(Pitch.E[1], 5, 1, 1), Note(Pitch.B[1], 5, 1, 1),
+    Note(Pitch.E[1], 10, 1, 1), Note(Pitch.B[1], 10, 1, 1),
+    Note(Pitch.E[1], 10, 1, 1), Note(Pitch.B[1], 10, 1, 1),
 
 )
